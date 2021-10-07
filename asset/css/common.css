@@ -1,0 +1,589 @@
+@charset "UTF-8";
+/*=======================================================================================
+1.0 - Common
+========================================================================================*/
+/* Reset
+ブラウザがデフォルトで持っているCSSを打ち消すCSSです。
+----------------------------------------------------------------------------------------*/
+* {
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote,
+body, caption, canvas, center, cite, code, dd, del, details, dfn, dialog, div,
+dl, dt, em, embed, fieldset, figcaption, figure, form, footer, header, hgroup,
+h1, h2, h3, h4, h5, h6, html,
+i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object,
+ol, output, p, pre, q, ruby, s, samp, section, main, small, span, strike, strong,
+sub, summary, sup, tt, table, tbody, textarea, tfoot, thead, time, tr, th, td, u, ul, var, video {
+  font-family: inherit;
+  font-size: 103%;
+  font-weight: inherit;
+  font-style: inherit;
+  vertical-align: baseline;
+  white-space: normal;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+  display: block;
+  margin: 0;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s,
+samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output,
+ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+article, aside, details, figcaption,
+figure, footer, header, hgroup, menu,
+nav, section {
+  display: block;
+}
+
+legend {
+  display: none;
+}
+
+
+
+/* html
+----------------------------------------------------------------------------------------*/
+/* Font size criterion is 10 pixels */
+/* How to specify */
+/* 10px = 1.0rem; */
+/* 16px = 1.6rem; */
+/* 文字の単位をremを使用する為の設定です。 */
+/* 通常　1rem = 16px　なのですが、16px以外だと計算しづらいので、 */
+/* 10px = 1.0remで表示できるように、文字のサイズの初期設定を再設定しています。*/
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* 文字のサイズ指定をpxで指定しない理由 */
+/* px指定だとブラウザによってはフォントサイズの設定変更ができない為*/
+/* 注）「画面を拡大」はpx/rem関係なく拡大縮小できる*/
+/* この指定は、制作会社によって異なる為、受託の場合は確認をすること */
+
+html {
+  font-size: 100%;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "palt" on;
+}
+
+body {
+  font-family: "Noto Sans JP", YuGothic, YuGothicM, "Yu Gothic", "Yu Gothic Medium", "游ゴシック Medium", "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-feature-settings: "palt" on;
+  line-height: 1;
+  color: #000;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+/*コンテンツの量が少ない場合、footerを固定する*/
+html,body{
+  height: 100%;
+}
+#AllContents{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+footer{
+	margin-top: auto;
+}
+
+/*=======================================================================================
+2.0 - Layout
+========================================================================================*/
+@media only screen and (min-width: 601px) {
+  /*header*/
+  header h1{
+    width: 840px;
+    padding-top: 40px;
+    text-align: center;
+    margin: 0px auto 40px auto;
+  }
+  header h1 img{
+    width: 360px;
+    height: 55px;
+  }
+
+  /*MenuList*/
+  section#MenulistSection{
+  width: 840px;
+  margin: 0px auto 50px auto;
+  }
+  section#MenulistSection ul.menu-unordered{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin: 0 auto;
+  }
+  section#MenulistSection ul.menu-unordered::after{
+    content:"";
+    display: block;
+    width: 256px;
+  }
+  section#MenulistSection ul.menu-unordered li {
+    width: 256px;
+    margin-bottom: 30px;
+  }
+  section#MenulistSection ul.menu-unordered li figure{
+    width: 256px;
+    height: 144px;
+    position: relative;
+    margin-bottom: 15px;
+  }
+  section#MenulistSection ul.menu-unordered li figure img{
+    width: 256px;
+    height: 144px;
+    object-fit: cover;
+  }
+  section#MenulistSection ul.menu-unordered li figure figcaption{
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    position: absolute;
+  }
+
+  section#MenulistSection ul.menu-unordered li h3{
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  section#MenulistSection ul.menu-unordered li p.read{
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  section#MenulistSection ul.menu-unordered li p.price{
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  section#MenulistSection ul.menu-unordered li p.price span{
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .tag{
+    display:inline-block;
+    min-height: 26px;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 6px 10px;
+  }
+  .recommended{
+    background-color: #992b03;
+    color: #fff;
+  }
+  .one-press{
+    background-color: #259904;
+    color: #fff;
+  }
+
+  /*fooer*/
+  footer{
+    max-width: 100%;
+    min-width: 840px;
+    min-height: 40px;
+    padding-top: 13px;
+    background-color: #376621;
+  }
+  footer p{
+    text-align: center;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /*メニュー固定の調整*/
+  #AllContents{
+    padding-top: 88px;
+  }
+  /*画像の幅指定*/
+  img{
+    width: 100%;
+    height: auto;
+  }
+  /*header*/
+  header{
+    width: 100%;
+    text-align: left;
+    height: 88px;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 9999;
+    background-color: #fff;
+  }
+  header h1{
+  }
+  header h1 img{
+    width: auto;
+    height: 30px;
+    position: absolute;
+    top:calc(50% - 15px);
+    left: 2%;
+  }
+  /*MenuList*/
+  section#MenulistSection{
+    width: 96%;
+    margin: 0px auto 60px auto;
+  }
+  section#MenulistSection ul.menu-unordered li figure{
+    position: relative;
+    margin-bottom: 15px;
+  }
+  section#MenulistSection ul.menu-unordered li figure figcaption{
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    position: absolute;
+  }
+  section#MenulistSection ul.menu-unordered li {
+    margin-bottom: 30px;
+  }
+  section#MenulistSection ul.menu-unordered li h3{
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  section#MenulistSection ul.menu-unordered li p.read{
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  section#MenulistSection ul.menu-unordered li p.price{
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  section#MenulistSection ul.menu-unordered li p.price span{
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .tag{
+    display:inline-block;
+    min-height: 26px;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 6px 10px;
+  }
+  .recommended{
+    background-color: #992b03;
+    color: #fff;
+  }
+  .one-press{
+    background-color: #259904;
+    color: #fff;
+  }
+  /*fooer*/
+  footer{
+    width: 100%;
+    min-height: 40px;
+    padding-top: 13px;
+    background-color: #376621;
+  }
+  footer p{
+    text-align: center;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+}
+
+
+
+/*=======================================================================================
+3.0 - Slickスライダー
+========================================================================================*/
+/*共通*/
+/*デベロッパーツールでクラス名を調べて対応させる*/
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before{
+  opacity: 1;
+  color: #333; /* hover時の色を変更 */
+}
+.slick-dots li button:before{
+  font-size: 20px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: '●';
+  text-align: center;
+  opacity: .25;
+  color: black;
+  /*
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  */
+}
+.slick-dots li.slick-active button:before{
+  opacity: .75;
+  color: #333; /* active時の色を変更 */
+}
+
+@media only screen and (min-width: 601px) {
+  .sliderArea{
+    width: 840px;
+    margin:0 auto 60px auto;
+  }
+  .sliderArea div img{
+    width: 840px;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .sliderArea{
+    width: 100%;
+    margin:0 auto 60px auto;
+  }
+  .sliderArea div img{
+    width: 100%;
+    height: 80vw;
+    object-fit: cover;
+  }
+}
+
+
+
+
+
+/*SPメニュー*/
+@media screen and (max-width:639px) {
+  #spposition{
+      position: fixed;
+      top: 20px;
+      right: 2%;
+  }
+  #spbtn {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      appearance: none;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      border: 1px solid #000;
+      border-radius: 5px;
+    }
+    .u-visuallyHidden {
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      border: 0;
+      padding: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%); 
+    }
+    .line{
+        display: block;
+        width: 40px;
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 20px);
+        transition: .5s;
+    }
+    #spbtn::before{
+        content: "";
+        display: block;
+        width: 40px;
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+        top: calc(25% - 1px);
+        left: calc(50% - 20px);
+        transition: .5s;
+    }
+    #spbtn::after{
+      content: "";
+      display: block;
+      width: 40px;
+      height: 2px;
+      background-color: #000;
+      position: absolute;
+      top: calc(75% - 1px);
+      left: calc(50% - 20px);
+      transition: .5s;
+  }
+
+  #spbtn.js-action .line{
+      display: block;
+      width: 40px;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      top: calc(50% - 1px);
+      left: calc(50% - 20px);
+      z-index: 0;
+  }
+
+  #spbtn.js-action::before{
+      content: "";
+      display: block;
+      width: 40px;
+      height: 2px;
+      background-color: #000;
+      position: absolute;
+      top: calc(50% - 1px);
+      left: calc(50% - 20px);
+      transform:rotate(-45deg);
+      z-index: 1;
+  }
+  #spbtn.js-action::after{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: calc(50% - 20px);
+    transform:rotate(45deg);
+    z-index: 1;
+}
+
+  nav#mainmenu{
+      width: 100%;
+      height: 0%;
+      position: fixed;
+      background-color: #fff;
+      top: 88px;
+      left: 0px;
+      transition: .5s;
+      overflow: hidden;
+      display: block;
+      z-index: 999;
+  }
+
+  nav#mainmenu.js-action{    
+      height: 100%;
+      }
+
+  nav#mainmenu ul{
+      list-style-type: none;
+      padding: 0px;
+  }
+
+  nav#mainmenu ul li a{
+    width: 100%;
+    font-size: 18px;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: green;
+  }
+
+}
+/*PCメニュー*/
+@media only screen and (min-width: 601px) {
+  #spbtn{
+    display: none;
+  }
+  nav#mainmenu ul{
+    width: 840px;
+    background-color: #376621;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;/*前の・を削除*/
+    padding: 0px;
+    margin: 0 auto 40px;
+  }
+  nav#mainmenu ul li{
+    width: 20%;
+  }
+  nav#mainmenu ul li a{
+    width: 100%;
+    display: block;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+  }
+  nav#mainmenu ul li a:hover{
+    background-color: green;
+  }
+}
